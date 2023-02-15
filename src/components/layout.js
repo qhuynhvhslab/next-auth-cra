@@ -6,6 +6,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 export default function Layout({ children }) {
   const session = useSession();
 
+  console.log(session)
   return (
     <div className={styles.wrapper}>
       <header>
@@ -26,7 +27,16 @@ export default function Layout({ children }) {
                     // callbackUrl: `${window.location.origin}`,
                   })}
                 >
-                  Sign in
+                  Github
+                </button>
+                <button
+                  // href="/api/auth/signin"
+                  className={styles.buttonPrimary}
+                  onClick={async () => signIn("discord", {
+                    // callbackUrl: `${window.location.origin}`,
+                  })}
+                >
+                  Discord
                 </button>
               </>
             )}

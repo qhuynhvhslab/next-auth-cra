@@ -56,6 +56,7 @@ export default function Layout({ children }) {
                   {session.data.user.name
                     ? `(${session.data.user.name})`
                     : null}
+                  {session?.data?.wallet}
                 </span>
                 <a
                   href="/api/auth/signout"

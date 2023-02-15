@@ -11,9 +11,8 @@ export default function Layout({ children }) {
       <header>
         <div className={styles.signedInStatus}>
           <p
-            className={`nojs-show ${
-              session?.status === "loading" ? styles.loading : styles.loaded
-            }`}
+            className={`nojs-show ${session?.status === "loading" ? styles.loading : styles.loaded
+              }`}
           >
             {session?.status !== "authenticated" && (
               <>
@@ -25,7 +24,7 @@ export default function Layout({ children }) {
                   className={styles.buttonPrimary}
                   onClick={(e) => {
                     e.preventDefault();
-                    signIn();
+                    signIn('github');
                   }}
                 >
                   Sign in

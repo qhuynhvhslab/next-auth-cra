@@ -1,4 +1,6 @@
 import CredentialsProvider from "next-auth/providers/credentials";
+import GitHubProvider from 'next-auth/providers/github'
+import DiscordProvider from "next-auth/providers/discord";
 
 let useSecureCookies = true;
 export const authOptions = {
@@ -160,7 +162,7 @@ export const authOptions = {
     },
   },
 };
-import GitHubProvider from 'next-auth/providers/github'
+
 // export const authOptions = {
 //   providers: [
 

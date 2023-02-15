@@ -7,12 +7,8 @@ export default function App() {
   return (
     <SessionProvider>
       <Layout>
-        <h1>NextAuth.js Example</h1>
-        <p>
-          An example site to demonstrate how to use&nbsp;
-          <a href="https://next-auth.js.org">NextAuth.js</a>&nbsp;for authentication
-          in Create React App.
-        </p>
+        <h1>React shared state test</h1>
+
       </Layout>
     </SessionProvider>
   );

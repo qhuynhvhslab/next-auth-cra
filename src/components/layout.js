@@ -23,7 +23,7 @@ export default function Layout({ children }) {
                   // href="/api/auth/signin"
                   className={styles.buttonPrimary}
                   onClick={async () => signIn("github", {
-                    callbackUrl: `${window.location.origin}`,
+                    // callbackUrl: `${window.location.origin}`,
                   })}
                 >
                   Sign in

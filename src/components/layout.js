@@ -19,8 +19,8 @@ export default function Layout({ children }) {
                 <span className={styles.notSignedInText}>
                   You are not signed in
                 </span>
-                <a
-                  href="/api/auth/signin"
+                <div
+                  // href="/api/auth/signin"
                   className={styles.buttonPrimary}
                   onClick={(e) => {
                     e.preventDefault();
@@ -28,7 +28,7 @@ export default function Layout({ children }) {
                   }}
                 >
                   Sign in
-                </a>
+                </div>
               </>
             )}
             {session?.status === "authenticated" && (

@@ -35,63 +35,62 @@ export const authOptions = {
     signIn: async (user, account, profile) => {
       // console.log("Provider: " + user?.account?.provider);
 
-      if (user?.account?.provider === "unstoppable-authenticate") {
-        let uathUser = user.credentials.uathUser;
-        const existingUser = await prisma.whiteList.findFirst({
-          where: {
-            uathUser: uathUser,
-          },
-        });
-        if (!existingUser) {
-          let error = `Unstoppable domain ${uathUser} is not linked.`;
-          console.log(error);
-          return `/quest-redirect?error=${error}`;
-        }
+      // if (user?.account?.provider === "unstoppable-authenticate") {
+      //   let uathUser = user.credentials.uathUser;
+      //   const existingUser = await prisma.whiteList.findFirst({
+      //     where: {
+      //       uathUser: uathUser,
+      //     },
+      //   });
+      //   if (!existingUser) {
+      //     let error = `Unstoppable domain ${uathUser} is not linked.`;
+      //     console.log(error);
+      //     return `/quest-redirect?error=${error}`;
+      //   }
 
-        let credentials = user?.credentials;
-        let userInfo = user?.user;
+      //   let credentials = user?.credentials;
+      //   let userInfo = user?.user;
 
-        if (
-          // credentials.address.toLowerCase() != userInfo.address.toLowerCase() ||
-          credentials.message != userInfo.message ||
-          credentials.signature != userInfo.signature
-        ) {
-          console.log("Invalid unstoppable authorization.");
-          let error = `Invalid unstoppable authorization.`;
-          return `/quest-redirect?error=${error}`;
-        }
-        return true;
-      }
-      if (user?.account?.provider === "discord") {
-        let discordId = user.account.providerAccountId;
-        const existingUser = await prisma.whiteList.findFirst({
-          where: {
-            discordId,
-          },
-        });
+      //   if (
+      //     // credentials.address.toLowerCase() != userInfo.address.toLowerCase() ||
+      //     credentials.message != userInfo.message ||
+      //     credentials.signature != userInfo.signature
+      //   ) {
+      //     console.log("Invalid unstoppable authorization.");
+      //     let error = `Invalid unstoppable authorization.`;
+      //     return `/quest-redirect?error=${error}`;
+      //   }
+      //   return true;
+      // }
+      // if (user?.account?.provider === "discord") {
+      //   let discordId = user.account.providerAccountId;
+      //   const existingUser = await prisma.whiteList.findFirst({
+      //     where: {
+      //       discordId,
+      //     },
+      //   });
 
-        if (!existingUser) {
-          let error = `Discord ${user.profile.username}%23${user.profile.discriminator} not found in our database.`;
-          return `/quest-redirect?error=${error}`;
-        }
-        return true;
-      }
+      //   if (!existingUser) {
+      //     let error = `Discord ${user.profile.username}%23${user.profile.discriminator} not found in our database.`;
+      //     return `/quest-redirect?error=${error}`;
+      //   }
+      //   return true;
+      // }
+      // if (user.account.provider === "twitter") {
+      //   let twitterId = user.account.providerAccountId;
 
-      if (user.account.provider === "twitter") {
-        let twitterId = user.account.providerAccountId;
+      //   const existingUser = await prisma.whiteList.findFirst({
+      //     where: {
+      //       twitterId,
+      //     },
+      //   });
 
-        const existingUser = await prisma.whiteList.findFirst({
-          where: {
-            twitterId,
-          },
-        });
-
-        if (!existingUser) {
-          let error = `Twitter account ${user.user.name} not found in our database.`;
-          return `/quest-redirect?error=${error}`;
-        }
-        return true;
-      }
+      //   if (!existingUser) {
+      //     let error = `Twitter account ${user.user.name} not found in our database.`;
+      //     return `/quest-redirect?error=${error}`;
+      //   }
+      //   return true;
+      // }
 
       return true;
     },

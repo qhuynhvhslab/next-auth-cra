@@ -34,11 +34,11 @@ export const authOptions = {
       clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
-  debug: false,
-  session: {
-    jwt: true,
-    maxAge: 60 * 60 * 24, // 7 days
-  },
+  debug: true,
+  // session: {
+  //   jwt: true,
+  //   maxAge: 60 * 60 * 24, // 7 days
+  // },
   jwt: {
     signingKey: NEXTAUTH_SECRET,
   },

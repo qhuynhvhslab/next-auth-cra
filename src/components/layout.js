@@ -10,7 +10,7 @@ export default function Layout({ children }) {
     <div className={styles.wrapper}>
       <header>
         <div className={styles.signedInStatus}>
-          <p
+          <div
             className={`nojs-show ${session?.status === "loading" ? styles.loading : styles.loaded
               }`}
           >
@@ -19,16 +19,15 @@ export default function Layout({ children }) {
                 <span className={styles.notSignedInText}>
                   You are not signed in
                 </span>
-                <div
+                <button
                   // href="/api/auth/signin"
                   className={styles.buttonPrimary}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    signIn('github');
-                  }}
+                  onClick={async () => signIn("github", {
+                    callbackUrl: `${window.location.origin}`,
+                  })}
                 >
                   Sign in
-                </div>
+                </button>
               </>
             )}
             {session?.status === "authenticated" && (
@@ -60,7 +59,7 @@ export default function Layout({ children }) {
                 </a>
               </>
             )}
-          </p>
+          </div>
         </div>
       </header>
       <main>{children}</main>

@@ -1,5 +1,5 @@
 import NextAuth from "next-auth/next";
-// import { authOptions } from "../../nextauth.config";
+import { authOptions } from "../../nextauth.config";
 // import { authOptions } from "../../src/api/[...nextauth]";
 
 

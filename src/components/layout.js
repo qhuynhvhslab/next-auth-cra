@@ -6,7 +6,9 @@ import { signIn, signOut, useSession } from "next-auth/react";
 export default function Layout({ children }) {
   const session = useSession();
 
-  console.log(session)
+  React.useEffect(() => {
+    window.localStorage.setItem('domain', "AnomuraGame")
+  }, [])
   return (
     <div className={styles.wrapper}>
       <header>

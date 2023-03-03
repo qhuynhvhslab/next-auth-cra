@@ -7,7 +7,7 @@ export default function Layout({ children }) {
   const session = useSession();
 
   React.useEffect(() => {
-    window.localStorage.setItem('domain', "AnomuraGame")
+
   }, [])
   return (
     <div className={styles.wrapper}>
